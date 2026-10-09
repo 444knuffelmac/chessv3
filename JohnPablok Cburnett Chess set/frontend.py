@@ -7,6 +7,7 @@ class Game:
         self.screen = pygame.display.set_mode((640, 640))
         self.clock = pygame.time.Clock()
         self.bg_color = (0, 0, 0)
+        self.light_brown = pygame.image.load('PNGs/No shadow/1x/square brown light_1x_ns.png')
 
     def run(self):
         while True:
