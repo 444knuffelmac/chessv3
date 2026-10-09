@@ -31,6 +31,8 @@ aanval_en_passant = True
 richochet_torenvariant = True
 richochet_koningvariant = True
 schaakmatable = True
+promotable = True
+piecesthatcanbepromotedto = {"toren":True}
 """
 l = links
 m = bewegen (move)
@@ -69,7 +71,9 @@ def stukgeneratie():
                         "aanval_en_passant": aanval_en_passant,
                         "richochet_torenvariant": richochet_torenvariant,
                         "richochet_koningvariant": richochet_koningvariant,
-                        "schaakmatable": schaakmatable
+                        "schaakmatable": schaakmatable,
+                        "promotable": promotable,
+                        "piecesthatcanbepromotedto":piecesthatcanbepromotedto
 
     3.3: extra bewegen naar voor (als je nog niet hebt bewogen)  --> T/F + aantal
     3.4: extra bewegen naar beneden (als je nog niet hebt bewogen)  --> T/F + aantal
