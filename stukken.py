@@ -4,35 +4,47 @@ empty = [['0', '0', '0', '0', '0', '0', '0', '0'], ['0', '0', '0', '0', '0', '0'
 
 #variabelen voor stukgeneratie te testen
 #bewegingsvariabelen
-linksbewegenhoeveelheid = 2
-rechtsbewegenhoeveelheid = 2
-bovenbewegenhoeveelheid = 5
-onderbewegenhoeveelheid = 2
-linksbovenbewegenhoeveelheid = 2
-rechtsbovenbewegenhoeveelheid = 2
-linksonderbewegenhoeveelheid = 2
-rechtsonderbewegenhoeveelheid = 2
-beweegpaardhoeveelheid = 1
+linksbewegenhoeveelheid = 2 # int
+rechtsbewegenhoeveelheid = 2 # int
+bovenbewegenhoeveelheid = 5 # int
+onderbewegenhoeveelheid = 2 # int
+linksbovenbewegenhoeveelheid = 2 # int
+rechtsbovenbewegenhoeveelheid = 2 # int
+linksonderbewegenhoeveelheid = 2 # int
+rechtsonderbewegenhoeveelheid = 2 # int
+beweegpaardhoeveelheid = 1 # int
 
 #aanvalvariabelen
-linksaanvallenhoeveelheid = 2
-rechtsaanvallenhoeveelheid = 2
-bovenaanvallenhoeveelheid = 1
-onderaanvallenhoeveelheid = 8
-linksbovenaanvallenhoeveelheid = 2
-rechtsbovenaanvallenhoeveelheid = 2
-linksonderaanvallenhoeveelheid = 2
-rechtsonderaanvallenhoeveelheid = 2
-aanvalpaardhoeveelheid = 1
+linksaanvallenhoeveelheid = 2 # int
+rechtsaanvallenhoeveelheid = 2 # int
+bovenaanvallenhoeveelheid = 1 # int
+onderaanvallenhoeveelheid = 8 # int
+linksbovenaanvallenhoeveelheid = 2 # int
+rechtsbovenaanvallenhoeveelheid = 2 # int
+linksonderaanvallenhoeveelheid = 2 # int
+rechtsonderaanvallenhoeveelheid = 2 # int
+aanvalpaardhoeveelheid = 1 # int
 
 # heeftbijzondereregels
-en_passantable = True
-aanval_en_passant = True
-richochet_torenvariant = True
-richochet_koningvariant = True
-schaakmatable = True
-promotable = True
-piecesthatcanbepromotedto = {"toren":True}
+en_passantable = True # bool
+aanval_en_passant = True # bool
+richochet_torenvariant = True # bool
+richochet_koningvariant = True # bool
+schaakmatable = True # bool
+promotable = True # bool
+piecesthatcanbepromotedto = {"toren":True} # dictionary with pieces that you can promote to
+
+#extra beweging eerste zet
+linksbewegenextraeerstezethoeveelheid = 2 # int
+rechtsbewegenextraeerstezethoeveelheid = 2 # int
+bovenbewegenextraeerstezethoeveelheid = 5 # int
+onderbewegenextraeerstezethoeveelheid = 2 # int
+linksbovenbewegenextraeerstezethoeveelheid = 2 # int
+rechtsbovenbewegenextraeerstezethoeveelheid = 2 # int
+linksonderbewegenextraeerstezethoeveelheid = 2 # int
+rechtsonderbewegenextraeerstezethoeveelheid = 2 # int
+beweegpaardextraeerstezethoeveelheid = 1 # int
+
 """
 l = links
 m = bewegen (move)
@@ -73,10 +85,19 @@ def stukgeneratie():
                         "richochet_koningvariant": richochet_koningvariant,
                         "schaakmatable": schaakmatable,
                         "promotable": promotable,
-                        "piecesthatcanbepromotedto":piecesthatcanbepromotedto
+                        "piecesthatcanbepromotedto":piecesthatcanbepromotedto,
 
-    3.3: extra bewegen naar voor (als je nog niet hebt bewogen)  --> T/F + aantal
-    3.4: extra bewegen naar beneden (als je nog niet hebt bewogen)  --> T/F + aantal
+
+                        #eerste beweging regels:
+                        "beweeglinksextraeerstezet": linksbewegenextraeerstezethoeveelheid,
+                         "beweegrechtsextraeerstezet": rechtsbewegenextraeerstezethoeveelheid,
+                         "beweegbovenextraeerstezet": bovenbewegenextraeerstezethoeveelheid,
+                         "beweegonderextraeerstezet": onderbewegenextraeerstezethoeveelheid,
+                         "beweeglinksbovenextraeerstezet": linksbovenbewegenextraeerstezethoeveelheid,
+                         "beweegrechtsbovenextraeerstezet": rechtsbovenbewegenextraeerstezethoeveelheid,
+                         "beweeglinksonderextraeerstezet": linksonderbewegenextraeerstezethoeveelheid,
+                         "beweegrechtsonderextraeerstezet": rechtsonderbewegenextraeerstezethoeveelheid,
+                         "beweegpaardextraeerstezet":beweegpaardextraeerstezethoeveelheid
                          }
 
     return regelsvoorditstuk
