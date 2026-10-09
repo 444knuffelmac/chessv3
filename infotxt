@@ -1,0 +1,52 @@
+https://chessprogramming.org/Endgame_Tablebases
+
+0xx = leeg
+1xx = wit
+2xx = zwart
+x1x = pion
+x2x = toren
+x3x = paard
+x4x =  bishop
+x5x = koningin
+x6x = koning
+laatste x --> zelfde stuk
+
+stuktype={"pion":"a",
+             "toren":"b",
+             "paard":"c",
+             "bishop":"d",
+             "koningin":"e",
+             "koning":"f"}
+
+bewegingsregels:
+    1: beweging: --> T/F
+    1.1: links bewegen --> T/F + aantal
+    1.2: rechts bewegen --> T/F + aantal
+    1.3: boven bewegen --> T/F + aantal
+    1.4: naar onder bewegen --> T/F + aantal
+    1.5: linksboven bewegen --> T/F + aantal
+    1.6: rechtsboven bewegen --> T/F + aantal
+    1.7: linksonder bewegen --> T/F + aantal
+    1.8: rechtsonder bewegen --> T/F + aantal
+    1.9: paard bewegen --> T/F
+
+    2: aanval   --> T/F
+    2.1: links aanvallen --> T/F + aantal
+    1.2: rechts aanvallen --> T/F + aantal
+    1.3: boven aanvallen --> T/F + aantal
+    1.4: naar onder aanvallen --> T/F + aantal
+    1.5: linksboven aanvallen --> T/F + aantal
+    1.6: rechtsboven aanvallen --> T/F + aantal
+    1.7: linksonder aanvallen --> T/F + aantal
+    1.8: rechtsonder aanvallen --> T/F + aantal
+    1.9: paard aanvallen --> T/F
+
+
+    3: bijzondere regels   --> T/F
+    3.1: en passant geven (dus als het mogelijk is om dit stuk en passant te slaan)  --> T/F
+    3.2: en passant nemen (dus het is mogelijk om met dit stuk een ander stuk te slaan en passant)  --> T/F
+    3.3: extra bewegen naar voor (als je nog niet hebt bewogen)  --> T/F + aantal
+    3.4: extra bewegen naar beneden (als je nog niet hebt bewogen)  --> T/F + aantal
+    3.5: richochet toren  --> T/F
+    3.6: richochet koning  --> T/F
+    3.7: kan schaakmat gezet worden   --> T/F

@@ -1,0 +1,80 @@
+
+mogelijke bewegingen tonen
+move list maker
+
+
+basisoutput
+bewegingen visualiseren
+
+
+
+
+
+
+gelijkspel: -> gevarieerd
+    1.stalemate: --> makkelijk
+        kijk of er minimum 1 stuk een beweging kan maken die legaal is, als dat zo is: stalemate is vals
+        anders stalemate is waar
+      4. dead position: -> gemiddeld tot zeer moeilijk + onoptimaal
+            als er een positie gebeurd is waarbij er geen enkele manier is om (zonder beide dezelfde persoon te checkmaten) 
+              nog checkmate te zetten
+              simpele variaties: -> gewoon detecteren of deze stukken de enige over zijn
+                    1 koning elk kleur niks anders (koningen kunnen elkaar niet aanvallen) -> er zullen altijd 2 koningen zijn dus deze zullen niet meer vernoemd woden)
+                    1 iemand alleen een paard, andere niks
+                    1 iemand alleen een bishop, andere niks
+                    1 iemand 2 paarden, andere niks
+                    1 iemand met 1 of meer bishop(pen) op hetzelfde kleur, andere niks
+                    beide zelfde kleur bishop
+
+              moeilijke variaties (semi-hardcode): -> 
+                    bereken waarbij de pionposities waarbij alle pionnen vastzitten tegen elkaar en dus niet kunnen bewegen, 
+                    maar elkaar niet kunnen aanvallen, en de koningen ook niet een pion kunnen aanvallen van het andere team
+
+                    idem als pionposities, maar waarbij er bishops inzitten van het kleur waarop de pionnen van dat kleur op
+                                    vastzitten, waardoor deze ook niks kan doen
+
+              letterlijk onmogelijk om niet te hardcoden:
+                    wat dat deze posities zelfs mogen zijn, kheb echt geen idee hoe de hell mensen hierop komen
+                    https://www.chess.com/forum/view/site-feedback/dead-position-detection-proposal
+
+
+
+dit zou dan ook moeten gereturned worden en gecheckt worden in de front end, en als schaakmat of stalemate waar zijn, dan moet dit geregistreerd worden in de front end
+
+taal instellingen toevoegen als mogelijk is
+regels aan en uit zetten (bv touch move rule laten aanzetten)
+
+en ook logica toevoegen waarbij een persoon zichzelf niet in schaak kan zetten
+
+zeer makkelijk -> bijna geen extra code nodig/logica is extreem simpel
+hoeveelheid code maakt vanaf hier niet uit
+makkelijk -> logica is extreem simpel/logisch en kan makkelijk in de code gestoken woren
+gemiddeld -> logica is logisch, maar er moet al wel wat bij nagedacht worden want er kan wat fout gaan
+moeilijk -> onlogische logica, met moeilijke berekeningen/moeilijk te implementeren
+
+wat nog te doen met moeilijkheidsgraad voor backend:
+gelijkspel: -> gevarieerd
+  stalemate -> gemakkelijk
+  dead position: ->gevarieerd
+    alleen koningen -> zeer makkelijk
+    koning met paard tegen koning met bishop/niks -> zeer makkelijk
+    koning met bishop tegen koning met paard/niks --> zeer makkelijk
+    koning met bishop tegen koning met bishop op zelfde kleur als de eerste bishop --> zeer makkelijk
+    koning met 2 dezelde gekleurde bishops tegen koning met niks -> makkelijk
+    koning met 2 paarden tegen koning met niks -> in bepaalde situaties, dus gemiddeld tot moeilijk (soms mogelijk om door te spelen (https://chess.fandom.com/wiki/Dead_Position))
+    pionnen-locked + koningen niet mogelijk om naar andere kant te gaan -> gemiddeld/moeilijk --> ENORM veel manieren waarop dit kan gebeuren, wat het extreem vermoeiend maakt
+    pionnen-locked + (koningen + bishops) niet mogelijk naar andere kant te gaan -> gemiddeld/moeilijk
+    extreem rare posities met paarden enzo die vast zitten -> gemiddeld als ik al die posities heb/moeilijk als ik ze zelf                                                                                                      moet uitzoeken
+    er zijn er enorm veel (https://github.com/miguel-ambrona/D3-Chess) is denk ik de enige die zo goed als perfect is in dit, maar dit is dan weer apparte code, in c++ die ik zou moeten linken of zelf programmeren, maar dit is een extreem moeilijk iets om zelf te coderen, dus een iets simpelere check zal voldoen(waarbij dat als je zou ernaar kijken je zou zeggen dit is onmogelijk voor iemand om te winnen) niet de dit is een heel moeilijke positie waarbij dat het lijkt alsof alles nog kan maar als we 100 bewegingen verder kijken het altijd eindigt in gelijkspel, dat is onnodig, niet praktisch om te doen, en zeer moeilijk om te coderen (en kan mss sommige mensen ambeteren omdat het lijkt alsof het nog mogelijk is om te winnen)
+HELPMATES WORDEN NIET GECHECKT, DUS ALS ER TECHNISCH GEZIEN EEN MOGELIJKHEID IS (als de andere persoonn meehelpt voor zichzelf schaak te zetten) DAN WORDT HET NOG STEEDS DOORGEVOERD TOTDAT 1 VAN DE ANDERE REGELS GEBEURD
+
+
+
+waar ik mee bezig ben:
+bewegingenlijst maken
+het volgende dat ik ga doen:
+wat moet er dan nog van mij gebeuren:
+stalemate
+dead positions
+taal instellingen mogelijk maken
+bewegingenlijst gelijk dat ze in het echt doen maken en kunnen decoderen (kan echt moeilijk zijn, ik weet het niet)
