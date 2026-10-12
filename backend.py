@@ -79,6 +79,8 @@ def default8():
         stukkenvoorkomen[wit + stuktype.get(back_row[i])] = stukkenvoorkomen.get(wit + stuktype.get(back_row[i])) + 1
         board[7][i] = f"{wit + stuktype.get(back_row[i]) + str(stukkenvoorkomen.get(wit + stuktype.get(back_row[i])))}"
 
+    return board
+
     """
     #generatie toren links
     board[0][0] = f"{zwart + stuktype.get("toren") + str(stukkenvoorkomen.get(zwart + stuktype.get("toren"))+1)}"
