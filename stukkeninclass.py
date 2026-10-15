@@ -53,53 +53,25 @@ d = beneden (down)
 r = rechts (right)
 s = schuin (strange (because d(iagonal) was taken))
 """
-
-def stukgeneratie():
-    regelsvoorditstuk = {
-                        #beweging van het stuk
-                        "beweeglinks": linksbewegenhoeveelheid,
-                         "beweegrechts": rechtsbewegenhoeveelheid,
-                         "beweegboven": bovenbewegenhoeveelheid,
-                         "beweegonder": onderbewegenhoeveelheid,
-                         "beweeglinksboven": linksbovenbewegenhoeveelheid,
-                         "beweegrechtsboven": rechtsbovenbewegenhoeveelheid,
-                         "beweeglinksonder": linksonderbewegenhoeveelheid,
-                         "beweegrechtsonder": rechtsonderbewegenhoeveelheid,
-                         "beweegpaard":beweegpaardhoeveelheid,
-
-                        #aanval van het stuk
-                         "aanvallinks": linksaanvallenhoeveelheid,
-                         "aanvalrechts": rechtsaanvallenhoeveelheid,
-                         "aanvalboven": bovenaanvallenhoeveelheid,
-                         "aanvalonder": onderaanvallenhoeveelheid,
-                         "aanvallinksboven": linksbovenaanvallenhoeveelheid,
-                         "aanvalrechtsboven": rechtsbovenaanvallenhoeveelheid,
-                         "aanvallinksonder": linksonderaanvallenhoeveelheid,
-                         "aanvalrechtsonder": rechtsonderaanvallenhoeveelheid,
-                         "aanvalpaard": aanvalpaardhoeveelheid,
-
-                        #bijzondere regels
-                        "en_passantable": en_passantable,
-                        "aanval_en_passant": aanval_en_passant,
-                        "richochet_torenvariant": richochet_torenvariant,
-                        "richochet_koningvariant": richochet_koningvariant,
-                        "schaakmatable": schaakmatable,
-                        "promotable": promotable,
-                        "piecesthatcanbepromotedto":piecesthatcanbepromotedto,
+class Stuk:
+    def __init__(self, beweeglinks=0, beweegrechts=0,beweegboven=0,beweegonder=0,beweeglinksboven=0,beweegrechtsboven=0,beweeglinksonder=0,beweegrechtsonder=0,beweegpaard=0,
+                 aanvallinks=0,aanvalrechts=0,aanvalboven=0,aanvalonder=0,aanvallinksboven=0,aanvalrechtsboven=0,aanvallinksonder=0,aanvalrechtsonder=0,aanvalpaard=0,
+                 en_passantable=0,aanval_en_passant=0,richochet_torenvariant=0,richochet_koningvariant=0,schaakmatable=0,promotable=0,piecesthatcanbepromotedto=[],
+                beweeglinksextraeerstezet=0,beweegrechtsextraeerstezet=0,beweegbovenextraeerstezet=0,beweegonderextraeerstezet=0,beweeglinksbovenextraeerstezet=0,
+                 beweegrechtsbovenextraeerstezet=0,beweeglinksonderextraeerstezet=0,beweegrechtsonderextraeerstezet=0,beweegpaardextraeerstezet=0
+                 ):
+        self.beweeglinks = beweeglinks
+        self.beweegrechts = beweegrechts
+        self.beweegboven=beweegboven
+        self.beweegonder=beweegonder
+        self.beweeglinksboven=beweeglinksboven
+        self.beweegrechtsboven=beweegrechtsboven
+        self.beweeglinksonder=beweeglinksonder
+        self.beweegrechtsonder=beweegrechtsonder
+        self.beweegpaard=beweegpaard
 
 
-                        #eerste beweging regels:
-                        "beweeglinksextraeerstezet": linksbewegenextraeerstezethoeveelheid,
-                         "beweegrechtsextraeerstezet": rechtsbewegenextraeerstezethoeveelheid,
-                         "beweegbovenextraeerstezet": bovenbewegenextraeerstezethoeveelheid,
-                         "beweegonderextraeerstezet": onderbewegenextraeerstezethoeveelheid,
-                         "beweeglinksbovenextraeerstezet": linksbovenbewegenextraeerstezethoeveelheid,
-                         "beweegrechtsbovenextraeerstezet": rechtsbovenbewegenextraeerstezethoeveelheid,
-                         "beweeglinksonderextraeerstezet": linksonderbewegenextraeerstezethoeveelheid,
-                         "beweegrechtsonderextraeerstezet": rechtsonderbewegenextraeerstezethoeveelheid,
-                         "beweegpaardextraeerstezet":beweegpaardextraeerstezethoeveelheid
-                         }
-
-    return regelsvoorditstuk
 
 print(stukgeneratie())
+sthk = Stuk(1,2)
+print(sthk.Beweeglinks)
